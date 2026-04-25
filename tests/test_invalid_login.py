@@ -1,0 +1,9 @@
+from pages.login_page import LoginPage
+
+def test_invalid_login(driver):
+    login = LoginPage(driver)
+
+    login.open()
+    login.login("locked_user", "wrong_password")
+
+    assert "Epic sadface" in driver.page_source
